@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>IAM Greenfield</title>
+    <!-- add style -->
+    <link rel="stylesheet" href="css/css.css"/>
+    <!-- add interaction control -->
+    <script type="application/javascript" src="js/jsl.js"></script>
+    <script type="application/javascript" src="js/jsr.js"></script>
+    <!-- add the "library" script wrapping XMLHttpRequest -->
+    <script type="application/javascript" src="js/lib/xhr.js"></script>
+</head>
+<body class ="">
+<header>
+    <button class="myapp-imgbutton myapp-img-menu myapp-align-left">menu</button>
+    <h1>medien</h1>
+    <button class="myapp-imgbutton myapp-img-add myapp-align-right">add</button>
+    <button class="myapp-imgbutton myapp-img-grid myapp-align-right">kachel</button>
+</header>
+<main>
+    <ul class="ul-main">
+        <li class="li-main">
+                <img src="data/img/whitecat.jpeg" class="myapp-align-left">
+                <h4 class="myapp-align-left">lorem.com</h4>
+                <h2 class="myapp-align-left">M1</h2>
+                <button class="myapp-imgbutton myapp-img-morevert myapp-align-right">edit</button>
+
+                <button class="myapp-imgbutton myapp-img-morevert myapp-align-right">edit</button>
+        </li>
+        <li class="li-main">
+                <img src="data/img/whitecat.jpeg" class="myapp-align-left">
+                <h2 class="myapp-align-left">dopsum</h2>
+                <button class="myapp-imgbutton myapp-img-morevert myapp-align-right">edit</button>
+        </li>
+<!--        <li><img src="data/img/greycat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">olor</h2><button class="myapp-imgbutton myapp-img-morevert myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/cat.jpeg" class="myapp-align-left"> <h2 class="myapp-align-left">lirem</h2><button class="myapp-imgbutton myapp-img-morevert myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/whitecat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">dopsum</h2><button class="myapp-imgbutton myapp-img-morevert myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/greycat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">olor</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/cat.jpeg" class="myapp-align-left"> <h2 class="myapp-align-left">lirem</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/whitecat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">dopsum</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/greycat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">olor</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/cat.jpeg" class="myapp-align-left"> <h2 class="myapp-align-left">lirem</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/whitecat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">dopsum</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/greycat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">olor</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/cat.jpeg" class="myapp-align-left"> <h2 class="myapp-align-left">lirem</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/whitecat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">dopsum</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/greycat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">olor</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/cat.jpeg" class="myapp-align-left"> <h2 class="myapp-align-left">lirem</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/whitecat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">dopsum</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/greycat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">olor</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/cat.jpeg" class="myapp-align-left"> <h2 class="myapp-align-left">lirem</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/whitecat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">dopsum</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/greycat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">olor</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/cat.jpeg" class="myapp-align-left"> <h2 class="myapp-align-left">lirem</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/whitecat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">dopsum</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+<!--        <li><img src="data/img/greycat.jpeg" class="myapp-align-left"><h2 class="myapp-align-left">olor</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>-->
+    </ul>
+</main>
+<footer>
+    <button class="myapp-imgbutton myapp-img-logout myapp-align-left">logout</button>
+    <button class="myapp-imgbutton myapp-img-refresh myapp-align-right">refresh</button>
+</footer>
+</body>
+</html>
