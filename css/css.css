@@ -117,13 +117,13 @@ p{
     padding: var(--myapp-default-space);
 }
 /*Listenansicht*/
-ul {
+.mainList {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-li {
+.mainListLi {
     height: var(--myapp-li-height);
     line-height: var(--myapp-li-height);
     border-bottom: 1px solid var(--myapp-li-bordercolor);
