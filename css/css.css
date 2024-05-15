@@ -117,13 +117,13 @@ p{
     padding: var(--myapp-default-space);
 }
 /*Listenansicht*/
-.ul-main{
+ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.li-main {
+li {
     height: var(--myapp-li-height);
     line-height: var(--myapp-li-height);
     border-bottom: 1px solid var(--myapp-li-bordercolor);
@@ -132,7 +132,7 @@ p{
 
 
 
- div h2 {
+ h2 {
     font-weight: normal;
     font-size: 18pt; /* sollen wir Textgröße var einführen?*/
     margin: 0;
