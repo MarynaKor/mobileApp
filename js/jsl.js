@@ -10,7 +10,7 @@ class ViewController {
     }
 
     initialiseViewSwitching(){
-        const switchElement = this.root.getElementsByTagName("header")[0];
+        const switchElement = this.root.getElementsByClassName("myapp-img-grid")[0];
         console.log("switchElement", switchElement);
         const switchTarget = this.root;
         switchElement.onclick = () => {

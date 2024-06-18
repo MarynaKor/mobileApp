@@ -15,7 +15,7 @@
 
 html, body {
     background-color: var(--myapp-color-background);
-    margin: 0px;
+    margin: 0;
     font-family: "Avenir Medium", sans-serif;
     color: rgb(45,45,45);
     width: 100%;
@@ -30,6 +30,9 @@ html, body {
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /*
@@ -38,7 +41,7 @@ html, body {
 header{
     height: var(--myapp-header-height);
     background-color: var(--myapp-background);
-    border-bottom: 20px solid var(--myapp-li-bordercolor);
+    border-bottom: 15px solid var(--myapp-li-bordercolor);
     /*box-shadow:*/
 ;
 
@@ -58,7 +61,7 @@ footer {
 header h1 {
     margin: 0;
     font-weight: normal;
-    line-height: var(--myapp-header-height);
+    line-height: calc(var(--myapp-header-height) - 15px);
     font-size: 20pt;
     text-transform: capitalize;
     display: inline-block;
@@ -72,10 +75,6 @@ header h1 {
     float: right;
 }
 
-.myapp-align-bottom{
-
-}
-
 .myapp-imgbutton{
     background-color: transparent;
     font-size: 0;
@@ -87,8 +86,8 @@ header h1 {
     width: var(--myapp-imagebutton-size);
     filter: invert(40%);
 }
- header .myapp-imgbutton{
-     margin-top: calc((var(--myapp-header-height) - var(--myapp-imagebutton-size)) / 2);
+header .myapp-imgbutton{
+     margin-top: calc((var(--myapp-header-height)- 15px - var(--myapp-imagebutton-size)) / 2);
  }
 footer .myapp-imgbutton{
     margin-top: calc((var(--myapp-footer-height) - var(--myapp-imagebutton-size)) / 2);
@@ -112,29 +111,40 @@ footer .myapp-imgbutton{
 .myapp-img-logout{
     background-image: url("./img/png/logout_FILL0_wght400_GRAD0_opsz24.png");
 }
-p{
-    margin: 0;
-    padding: var(--myapp-default-space);
+.myapp-playArrow{
+    background-image: url("./img/png/play_arrow_FILL0_wght400_GRAD0_opsz24.png");
 }
+
 /*Listenansicht*/
 .mainList {
     list-style: none;
     padding: 0;
     margin: 0;
+
 }
 
 .mainListLi {
     height: var(--myapp-li-height);
     line-height: var(--myapp-li-height);
     border-bottom: 1px solid var(--myapp-li-bordercolor);
-    padding-left: var(--myapp-default-space);
-    display:flex;
-    align-items: center;
+    /*padding: 10px 10px 20px;*/
 }
 
-.blue{
-    background-color: blue;
-    padding: 0;
+.flexContainer{
+    display: flex;
+    gap: 10px;
+}
+.songinfo{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+}
+.songDate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
  h2 {
@@ -171,13 +181,21 @@ li .myapp-imgbutton{
     height: var(--myapp-tiles-size);
     padding: 0;
 }
+/*Please remove one once they are aligned Li Elements*/
+/*.myapp-tiles li img {*/
+/*    margin: 0;*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    display: block;*/
+/*}*/
 
-.myapp-tiles li img {
+.myapp-tiles li div img {
     margin: 0;
     height: 100%;
     width: 100%;
     display: block;
 }
+
 @media (max-width: 400px) {
     .myapp-tiles li{
         --myapp-tiles-columns: 3;

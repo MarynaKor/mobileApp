@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        img{
+            width: 100px;
+            aspect-ratio: 1 / 1;
+        }
+        button{
+            border: none;
+            background: none;
+        }
+        button img{
+            width: 20px;
+        }
+        li{
+            border-bottom: 2px solid grey;
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            padding: 10px 10px 20px;
+
+        }
+        .flexContainer{
+            display: flex;
+            gap: 10px;
+        }
+        .songinfo{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .songDate{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .myapp-playArrow{
+            background-image: url("./css/img/png/play_arrow_FILL0_wght400_GRAD0_opsz24.png");
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <div class="flexContainer">
+            <div class="imgcontainer">
+                <img src="data/img/whitecat.jpeg">
+            </div>
+            <div class="songinfo">
+                <a>lorempixel.com</a>
+                <h1>Titel</h1>
+                <button class="myapp-playArrow">play</button>
+            </div>
+        </div>
+        <div class="songDate">
+            <p> 11.02.2024</p>
+            <button><img src="./css/img/png/more_vert_FILL0_wght400_GRAD0_opsz24.png" ></button>
+        </div>
+
+    </li>
+</ul>
+
+</body>
+</html>
