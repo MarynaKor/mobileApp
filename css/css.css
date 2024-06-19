@@ -1,15 +1,18 @@
 /* variable declarations */
 :root {
-    --myapp-color-background: limegreen;
+    --myapp-color-background: white;
     --myapp-header-height: 60px;
     --myapp-footer-height: 50px;
+    --myapp-footer-borderline: 2px;
     --myapp-background: rgb(225,225,225);
     --myapp-imagebutton-size: 40px;
     --myapp-imagebutton-imgsize: 30px;
     --myapp-default-space: 10px;
+    --myapp-default-spaceInLi: 5px;
     --myapp-li-height: 70px;
     --myapp-li-bordercolor: rgb(120,120,120);
     --myapp-li-imgsize: 35px;
+    --myapp-li-buttonsize: 20px;
 
 }
 
@@ -17,7 +20,7 @@ html, body {
     background-color: var(--myapp-color-background);
     margin: 0;
     font-family: "Avenir Medium", sans-serif;
-    color: rgb(45,45,45);
+    color: rgb(0,0,0);
     width: 100%;
     max-width: 100%;
     height: 100%;
@@ -41,23 +44,23 @@ html, body {
 header{
     height: var(--myapp-header-height);
     background-color: var(--myapp-background);
-    border-bottom: 15px solid var(--myapp-li-bordercolor);
+    border-bottom:  solid var(--myapp-footer-borderline) var(--myapp-li-bordercolor);
     /*box-shadow:*/
-;
-
 }
+footer {
+    height: var(--myapp-footer-height);
+    background-color: var(--myapp-background);
+    border-top: var(--myapp-footer-borderline) solid rgb(255,128,0);
+}
+
 main{
     /* 100vh  - hoehe header -hoehe footer*/
-    height: calc(100vh - (var(--myapp-header-height) + var(--myapp-footer-height)));
+    height: calc(100vh - (var(--myapp-header-height) + var(--myapp-footer-height) + (var(--myapp-footer-borderline) * 2)));
     background-color: var(--myapp-background);
     overflow-y: scroll;
 }
 
-footer {
-    height: var(--myapp-footer-height);
-    background-color: var(--myapp-background);
-    border-top: 2px solid rgb(255,128,0);
-}
+
 header h1 {
     margin: 0;
     font-weight: normal;
@@ -66,6 +69,7 @@ header h1 {
     text-transform: capitalize;
     display: inline-block;
 }
+
 
 /*buttons*/
 .myapp-align-left{
@@ -77,13 +81,24 @@ header h1 {
 
 .myapp-imgbutton{
     background-color: transparent;
-    font-size: 0;
+    /*font-size: 0;*/
     border: none;
     background-repeat: no-repeat;
     background-position: center;
     background-size: var(--myapp-imagebutton-imgsize) var(--myapp-imagebutton-imgsize);
     height: var(--myapp-imagebutton-size);
     width: var(--myapp-imagebutton-size);
+    filter: invert(40%);
+}
+.myapp-imgbuttonPlay{
+    background-color: transparent;
+    /*font-size: 0;*/
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+    height: var(--myapp-default-space);
+    aspect-ratio: 1/1;
     filter: invert(40%);
 }
 header .myapp-imgbutton{
@@ -115,6 +130,10 @@ footer .myapp-imgbutton{
     background-image: url("./img/png/play_arrow_FILL0_wght400_GRAD0_opsz24.png");
 }
 
+.myapp-img-refresh{
+    background-image: url("./img/png/sync_FILL0_wght400_GRAD0_opsz24.png");
+}
+
 /*Listenansicht*/
 .mainList {
     list-style: none;
@@ -125,45 +144,80 @@ footer .myapp-imgbutton{
 
 .mainListLi {
     height: var(--myapp-li-height);
-    line-height: var(--myapp-li-height);
-    border-bottom: 1px solid var(--myapp-li-bordercolor);
+    border-bottom: 2px solid var(--myapp-li-bordercolor);
     /*padding: 10px 10px 20px;*/
+    display: flex;
+    /*gap: calc(());*/
+    justify-content: space-between;
 }
 
 .flexContainer{
     display: flex;
-    gap: 10px;
+    gap: 2px;
+    padding-bottom: calc(var(--myapp-default-spaceInLi) + (var(--myapp-li-buttonsize) / 2) );/* play pfeil zeigt auf den obersten punkt im Icon rechts*/
+    padding-top: var(--myapp-default-spaceInLi);
+    padding-left: var(--myapp-default-spaceInLi);
+
+
+
 }
 .songinfo{
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
+    /*gap: 15px;*/
+    justify-content: space-between;
+
 }
 .songDate {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-}
+    padding: 5px 5px 5px 0;
 
- h2 {
-    font-weight: normal;
-    font-size: 18pt; /* sollen wir Textgröße var einführen?*/
-    margin: 0;
-    margin-left: var(--myapp-default-space);
+}
+.imgContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(var(--myapp-li-height) - (var(--myapp-default-spaceInLi) + (var(--myapp-li-buttonsize) / 2)) - var(--myapp-default-spaceInLi));
+}
+.moreFlex{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
 }
 img {
-    height: var(--myapp-li-imgsize);
-    width: var(--myapp-li-imgsize);
-    margin-top: calc((var(--myapp-li-height) - var(--myapp-li-imgsize)) / 2);
+    width: 100%;
+    aspect-ratio: 1/1;
+    /*margin-top: calc((70px - 35px) / 2);*/
     object-fit: cover;
+    display: block;
 }
-
+ h2 {
+    font-weight: normal;
+    font-size: 10pt; /* sollen wir Textgröße var einführen?*/
+    margin: 0;
+}
+ a{
+     font-size: 8pt;
+     color: slategray;
+ }
+ p{
+     font-size: 10pt;
+     color: slategray;
+ }
+ .grauerBalken{
+     height: 20px;
+     background-color: gray;
+ }
 
 li .myapp-imgbutton{
-    margin-top: calc((var(--myapp-li-height) - var(--myapp-imagebutton-size)) / 2);
+    /*margin-top: calc((var(--myapp-li-height) - var(--myapp-imagebutton-size)) / 2);*/
+    height: var(--myapp-li-buttonsize);
 }
+
 /*tiles*/
 .myapp-tiles li *{
     display: none;
