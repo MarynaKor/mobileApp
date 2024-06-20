@@ -14,7 +14,8 @@ class ViewController {
         console.log("switchElement", switchElement);
         const switchTarget = this.root;
         switchElement.onclick = () => {
-            this.root.classList.toggle("myapp-tiles");
+           this.root.classList.toggle("myapp-tiles");
+
         }
     }
 }

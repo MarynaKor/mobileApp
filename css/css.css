@@ -13,6 +13,7 @@
     --myapp-li-bordercolor: rgb(120,120,120);
     --myapp-li-imgsize: 35px;
     --myapp-li-buttonsize: 20px;
+    --myapp-greybackgroundColor: rgb(158, 158, 159);
 
 }
 
@@ -45,7 +46,6 @@ header{
     height: var(--myapp-header-height);
     background-color: var(--myapp-background);
     border-bottom:  solid var(--myapp-footer-borderline) var(--myapp-li-bordercolor);
-    /*box-shadow:*/
 }
 footer {
     height: var(--myapp-footer-height);
@@ -55,7 +55,7 @@ footer {
 
 main{
     /* 100vh  - hoehe header -hoehe footer*/
-    height: calc(100vh - (var(--myapp-header-height) + var(--myapp-footer-height) + (var(--myapp-footer-borderline) * 2)));
+    height: calc(100vh - (var(--myapp-header-height) + var(--myapp-footer-height) ));
     background-color: var(--myapp-background);
     overflow-y: scroll;
 }
@@ -64,7 +64,7 @@ main{
 header h1 {
     margin: 0;
     font-weight: normal;
-    line-height: calc(var(--myapp-header-height) - 15px);
+    line-height: calc(var(--myapp-header-height) - 1px );
     font-size: 20pt;
     text-transform: capitalize;
     display: inline-block;
@@ -102,10 +102,10 @@ header h1 {
     filter: invert(40%);
 }
 header .myapp-imgbutton{
-     margin-top: calc((var(--myapp-header-height)- 15px - var(--myapp-imagebutton-size)) / 2);
+     margin-top: calc((var(--myapp-header-height) - 2px - var(--myapp-imagebutton-size)) / 2 );
  }
 footer .myapp-imgbutton{
-    margin-top: calc((var(--myapp-footer-height) - var(--myapp-imagebutton-size)) / 2);
+    margin-top: calc((var(--myapp-footer-height) - 2px - var(--myapp-imagebutton-size)) / 2);
 }
 
 .myapp-img-menu{
@@ -135,16 +135,16 @@ footer .myapp-imgbutton{
 }
 
 /*Listenansicht*/
-.mainList {
+ul {
     list-style: none;
     padding: 0;
     margin: 0;
 
 }
 
-.mainListLi {
+li {
     height: var(--myapp-li-height);
-    border-bottom: 2px solid var(--myapp-li-bordercolor);
+    border-bottom: 1px solid var(--myapp-li-bordercolor);
     /*padding: 10px 10px 20px;*/
     display: flex;
     /*gap: calc(());*/
@@ -208,9 +208,9 @@ img {
      font-size: 10pt;
      color: slategray;
  }
- .grauerBalken{
+ .greySpace{
      height: 20px;
-     background-color: gray;
+     background-color: var(--myapp-greybackgroundColor);
  }
 
 li .myapp-imgbutton{
@@ -219,8 +219,19 @@ li .myapp-imgbutton{
 }
 
 /*tiles*/
-.myapp-tiles li *{
+.myapp-tiles li .songDate p, .myapp-tiles li .songinfo{
     display: none;
+}
+.myapp-tiles li .flexContainer{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.myapp-tiles li .imgContainer{
+    width: 100%;
+}
+.myapp-tiles li .songDate{
+    padding: 0;
 }
 
 .myapp-tiles li {
@@ -234,39 +245,43 @@ li .myapp-imgbutton{
     width: var(--myapp-tiles-size);
     height: var(--myapp-tiles-size);
     padding: 0;
+    position: relative;
+}
+.myapp-tiles li .myapp-img-morevert{
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    width: 20px;
 }
 /*Please remove one once they are aligned Li Elements*/
-/*.myapp-tiles li img {*/
-/*    margin: 0;*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*    display: block;*/
-/*}*/
-
 .myapp-tiles li div img {
     margin: 0;
     height: 100%;
     width: 100%;
     display: block;
 }
+.myapp-tiles .myapp-img-grid{
+    background-image: url("./img/png/list_FILL0_wght400_GRAD0_opsz24.png");
+}
 
-@media (max-width: 400px) {
-    .myapp-tiles li{
-        --myapp-tiles-columns: 3;
+
+    @media (max-width: 400px) {
+        .myapp-tiles li{
+            --myapp-tiles-columns: 3;
+        }
     }
-}
-@media (min-width: 400px) {
-    .myapp-tiles li {
-        --myapp-tiles-columns: 5;
+    @media (min-width: 400px) {
+        .myapp-tiles li {
+            --myapp-tiles-columns: 5;
+        }
     }
-}
-@media (min-width: 500px) {
-    .myapp-tiles li {
-        --myapp-tiles-columns: 7;
+    @media (min-width: 500px) {
+        .myapp-tiles li {
+            --myapp-tiles-columns: 7;
+        }
     }
-}
-@media (min-width: 600px) {
-    .myapp-tiles li {
-        --myapp-tiles-columns: 10;
+    @media (min-width: 600px) {
+        .myapp-tiles li {
+            --myapp-tiles-columns: 10;
+        }
     }
-}
