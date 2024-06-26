@@ -9,7 +9,7 @@ class ViewController {
         console.log("oncreate(): root is: ", this.root);
         this.prepareViewSwitching();
         this.prepareFading();
-
+        this.prepareListItemSelection();
     }
 
     prepareViewSwitching(){
@@ -33,6 +33,15 @@ class ViewController {
             };
             fadingTarget.addEventListener("transitionend", onTransitionend, {once: true});
 
+        }
+    }
+    prepareListItemSelection() {
+        const listItems = this.root.getElementsByTagName("li");
+        for(var i = 0; i < listItems.length; i++) {
+            var currentItem = listItems[i];
+            currentItem.onclick = () => {
+                alert("selected: " + currentItem.querySelector("h2").textContent);
+            }
         }
     }
 
