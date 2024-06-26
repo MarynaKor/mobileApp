@@ -37,8 +37,8 @@ class ViewController {
     }
     prepareListItemSelection() {
         const listItems = this.root.getElementsByTagName("li");
-        for(var i = 0; i < listItems.length; i++) {
-            var currentItem = listItems[i];
+        for(let i = 0; i < listItems.length; i++) {
+            let currentItem = listItems[i]; //var keyword
             currentItem.onclick = () => {
                 alert("selected: " + currentItem.querySelector("h2").textContent);
             }
