@@ -1,26 +1,45 @@
 class ViewController {
 
     root;
+
     constructor() {
-        console.log("constructor(): has been called");
-    }
-    oncreate(){
-        console.log("oncreate(): root is: ", this.root);
-        this.initialiseViewSwitching();
     }
 
-    initialiseViewSwitching(){
-        const switchElement = this.root.getElementsByClassName("myapp-img-grid")[0];
-        console.log("switchElement", switchElement);
-        const switchTarget = this.root;
-        switchElement.onclick = () => {
+    oncreate(){
+        console.log("oncreate(): root is: ", this.root);
+        this.prepareViewSwitching();
+        this.prepareFading();
+
+    }
+
+    prepareViewSwitching(){
+        const switchTrigger = this.root.querySelector("header .myapp-img-grid"); // DOM element getTag oder querySelector
+        const switchTarget  = this.root;
+        switchTrigger.onclick = () => {
            this.root.classList.toggle("myapp-tiles");
 
         }
     }
+    prepareFading() {
+        const fadingTrigger = this.root.querySelector("footer #fadingTrigger"); // getElementbyID and class  nur auf document vorhanden
+        const fadingTarget = this.root.getElementsByTagName("main")[0];
+        fadingTrigger.onclick = () => {
+            // alert("fading");
+            console.log("fadingTrigger is clicked");
+            fadingTarget.classList.toggle("myapp-faded");
+            const onTransitionend = () => {
+                console.log("ontransitionend is clicked");
+                fadingTarget.classList.toggle("myapp-faded");
+            };
+            fadingTarget.addEventListener("transitionend", onTransitionend, {once: true});
+
+        }
+    }
+
 }
 window.onload = () => {
     const vc = new ViewController();
     vc.root = document.body;
-    vc.oncreate();
+    vc.oncreate(); //gleichnamige Methode und es gibt ein Anroid Framework dafür
+
 }
