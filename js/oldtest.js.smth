@@ -11,14 +11,13 @@ class ViewController {
         this.prepareFading();
         this.prepareListItemSelection();
         this.prepareAddingListItems();
-        this.loadAndDisplayListItems();
     }
 
     prepareViewSwitching(){
         const switchTrigger = this.root.querySelector("header .myapp-img-grid"); // DOM element getTag oder querySelector
         const switchTarget  = this.root;
         switchTrigger.onclick = () => {
-           switchTarget.classList.toggle("myapp-tiles");
+            switchTarget.classList.toggle("myapp-tiles");
 
         }
     }
@@ -45,21 +44,21 @@ class ViewController {
         // for(let i = 0; i < listItems.length; i++) {
         //     const currentItem = listItems[i]; //var keyword
         //     currentItem.onclick = onclickListener;
-            // event objekt hat ein Target womit ich dann auf ein Element direkt zugreifen kann und es peichert dieses im evt dann
-            //achtung wir haben zu viele Event Listener weil es auf dem eins sitzt also minimieren wir das
+        // event objekt hat ein Target womit ich dann auf ein Element direkt zugreifen kann und es peichert dieses im evt dann
+        //achtung wir haben zu viele Event Listener weil es auf dem eins sitzt also minimieren wir das
 //listener achtet nur auf das ul
         const listRoot = this.root.querySelector("ul");
         listRoot.onclick = onclickListener;
-        }
+    }
 
-        prepareAddingListItems() {
+    prepareAddingListItems() {
         const addingItem = this.root.querySelector(".myapp-img-add");
         this.listRoot= this.root.querySelector("ul");
 
-        this.copiedLi = this.listRoot.querySelector("template");
+        this.copiedLi = this.listRoot.querySelector("li");
         console.log("read li element now called dollyLi: ", this.copiedLi);
-        // this.copiedLi.parentNode.removeChild(this.copiedLi);
-        // this.copiedLi.classList.remove("myapp-template");
+        this.copiedLi.parentNode.removeChild(this.copiedLi);
+        this.copiedLi.classList.remove("myapp-template");
 
         addingItem.onclick = (evt) => {
             evt.stopPropagation(); // stopped das Bubblen auf den Header, da wir nur den Button brauchen
@@ -68,37 +67,45 @@ class ViewController {
 
             const selectedSrc= srcOptions[Date.now() % srcOptions.length];
             const selectedTitle= titleOptions[Date.now() % titleOptions.length];
-
             this.addNewListItem({src: "data/img/" + selectedSrc, title: selectedTitle});
-            }
         }
+    }
 
-        addNewListItem(obj) {
+    addNewListItem(obj) {
+        // ineffeziente Lösung weil es das gesamte DOM element immer wieder neu aufbaut  und Separation of Concern violated
+        // this.listRoot.innerHTML += "<li>\n" +
+        //     "            <div class=\"flexContainer\">\n" +
+        //     "                    <div class=\"imgContainer\">\n" +
+        //     "                        <img class=\"newView\" src=\"" + src + "\">\n" +
+        //     "                    </div>\n" +
+        //     "                    <div class=\"songinfo\">\n" +
+        //     "                        <a>lorempixel.com</a>\n" +
+        //     "                        <h2>"+ title +"</h2>\n" +
+        //     "                        <div class=\"moreFlex\"><button class=\"myapp-imgbuttonPlay myapp-playArrow\"></button><p>0</p></div>\n" +
+        //     "                    </div>\n" +
+        //     "            </div>\n" +
+        //     "            <div class=\"songDate\">\n" +
+        //     "                <p><a> 11.02.2024</a></p>\n" +
+        //     "                <button class=\"myapp-imgbutton myapp-img-morevert\"></button>\n" +
+        //     "            </div>\n" +
+        //     "        </li>";
 
-            // cloning: viel effizienter vor allem bei komplexerem li Elementen aber es ist auch bessere separation of htnl and js
-            console.log("cloning template content :", this.copiedLi.content);
-            const li = document.importNode(this.copiedLi.content, true). querySelector("li");
-            console.log("cloned li element ", li);
-            li.querySelector("img").src = obj.src;
-            li.querySelector("h2").textContent = obj.title;
+        //neue effizeintere Lösung dom element wird hinzugefügt zu der schon ufgebauten struktur aber trotzdem violated und viel zu komplex bei meiner html struktur
+        // const li = document.createElement("li");
+        // const img = document.createElement("img");
+        // li.appendChild(img);
+        // const h2 = document.createElement("h2");
 
-            this.listRoot.appendChild(li);
-        }
-        //http://localhost:63342/mobileApp/data/listitems.json
-        loadAndDisplayListItems() {
-        const request = new XMLHttpRequest();
-        request.open("GET","data/listitems.json");
-        request.send();
-        //eventlistener auf load setzen
-        request.onload = () => {
-            const responseText = request.responseText;
-            console.log(responseText);
-            const responseItems = JSON.parse(responseText);
-            console.log(responseItems);
-            responseItems.forEach(item => this.addNewListItem(item));
-        }
+        // cloning: viel effizienter vor allem bei komplexerem li Elementen aber es ist auch bessere separation of htnl and js
+        console.log("cloning template content :", this.copiedLi.content);
+        const li = document.importNode(this.copiedLi.content, true). querySelector(li);
+        console.log("cloned li element ", li);
+        li.querySelector("img").src = obj.src;
+        li.querySelector("h2").textContent = obj.title;
+        this.listRoot.appendChild(li);
 
-        }
+
+    }
 }
 window.onload = () => {
     const vc = new ViewController();

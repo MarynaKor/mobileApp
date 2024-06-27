@@ -296,3 +296,7 @@ main{
     opacity: 1;
     transition: opacity 2s;
 }
+
+.myapp-template{
+    display: none;
+}
