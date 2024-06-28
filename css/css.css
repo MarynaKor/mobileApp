@@ -290,11 +290,10 @@ li .myapp-imgbutton{
 main.myapp-faded{
     opacity: 0;
     transition: opacity 2s;
-
 }
 main{
     opacity: 1;
-    transition: opacity 2s;
+    transition: opacity 1s;
 }
 
 .myapp-template{
