@@ -33,19 +33,20 @@ class ViewController {
     prepareListItemSelection() {
         // const listItems = this.root.getElementsByTagName("li");
         const onclickListener = (evt) => {
-            alert("selected: " + evt.target.closest("li").querySelector("h2").textContent);
+            if (evt.target.closest(".myapp-img-morevert")) {
+                alert("Url des Bildes:" + evt.target.closest("li").querySelector("img").src + "  Titel:  " + evt.target.closest("li").querySelector("h2").textContent);
+            }else{
+                alert("Titel: " + evt.target.closest("li").querySelector("h2").textContent);
+            }
         };
-        // for(let i = 0; i < listItems.length; i++) {
-        //     const currentItem = listItems[i]; //var keyword
-        //     currentItem.onclick = onclickListener;
         // event objekt hat ein Target womit ich dann auf ein Element direkt zugreifen kann und es peichert dieses im evt dann
         //achtung wir haben zu viele Event Listener weil es auf dem eins sitzt also minimieren wir das
         //listener achtet nur auf das ul
-        const listRoot = this.root.querySelector("ul");
-        listRoot.onclick = onclickListener;
-        }
+         const listRoot = this.root.querySelector("ul");
+         listRoot.onclick = onclickListener;
+    }
 
-        prepareAddingListItems() {
+    prepareAddingListItems() {
         const addingItem = this.root.querySelector(".myapp-img-add");
         this.listRoot= this.root.querySelector("ul");
 
@@ -64,7 +65,7 @@ class ViewController {
 
             this.addNewListItem({src: "data/img/" + selectedSrc, title: selectedTitle});
             }
-        }
+    }
 
         addNewListItem(obj) {
 
