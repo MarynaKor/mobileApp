@@ -11,6 +11,7 @@ class ViewController {
         this.prepareListItemSelection();
         this.prepareAddingListItems();
         this.loadAndDisplayListItems();
+        this.refreshTheWholePage();
     }
 
     prepareViewSwitching() {
@@ -29,7 +30,6 @@ class ViewController {
         }
 
     }
-
     prepareListItemSelection() {
         // const listItems = this.root.getElementsByTagName("li");
         const onclickListener = (evt) => {
@@ -73,6 +73,7 @@ class ViewController {
         console.log("cloning template content :", this.copiedLi.content);
         const li = document.importNode(this.copiedLi.content, true).querySelector("li");
         console.log("cloned li element ", li);
+        li.classList.add("myapp-newLiItem");
         li.querySelector(".myapp-date").textContent = new Date().toLocaleDateString();
         li.querySelector(".myapp-owner").textContent = obj.owner;
         li.querySelector(".myapp-numOfTags").textContent = obj.numOfTags;
@@ -102,6 +103,16 @@ class ViewController {
         }
         request.send();
         console.log("2.REQUEST has been send to server");
+    }
+
+    refreshTheWholePage() {
+        const refreshTrigger = this.root.querySelector("footer #refreshTrigger"); // getElementbyID and class  nur auf document vorhanden
+        refreshTrigger.onclick = () => {
+            const removeTarget = this.root.querySelectorAll(".myapp-newLiItem");
+            for(let i = 0; i < removeTarget.length; i++) {
+                removeTarget[i].remove();
+                }
+            }
     }
 }
 window.onload = () => {
