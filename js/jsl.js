@@ -34,7 +34,9 @@ class ViewController {
         // const listItems = this.root.getElementsByTagName("li");
         const onclickListener = (evt) => {
             if (evt.target.closest(".myapp-img-morevert")) {
-                alert("Url des Bildes:" + evt.target.closest("li").querySelector("img").src + "  Titel:  " + evt.target.closest("li").querySelector("h2").textContent);
+                if (confirm("Möchtest du das Lied mit dem Titel: " + evt.target.closest("li").querySelector("h2").textContent + " entfernen?")){
+                    evt.target.closest("li").remove();
+                }
             } else {
                 alert("Titel: " + evt.target.closest("li").querySelector("h2").textContent);
             }
